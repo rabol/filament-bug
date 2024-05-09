@@ -27,7 +27,12 @@ new #[Layout('layouts.guest')] class extends Component
 <div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+@env('local')
+    <div class="space-y-2">
+        <x-login-link email="admin@filament-bug.test" label="Login as admin"/>
+        <x-login-link email="user@filament-bug.test" label="Login as regular user"/>
+    </div>
+@endenv
     <form wire:submit="login">
         <!-- Email Address -->
         <div>
